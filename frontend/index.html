@@ -1,17 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Configurator</title>
+    <title>Konfigurator Zabudów</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="api.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Car Configurator</h1>
-    <button id="fetch-btn">Get Car Info</button>
-    <div id="car-info"></div>
 
-    <script src="script.js"></script>
+    <header>
+        <h1>Konfigurator Zabudów</h1>
+    </header>
+
+    <main>
+        <section class="configurator">
+            <h2>Wybierz konfigurację</h2>
+
+            <div class="input-group">
+                <label for="brand-select">Marka:</label>
+                <select id="brand-select">
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="cabin-select">Kabina:</label>
+                <select id="cabin-select" disabled>
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="wheelbase-select">Rozstaw osi:</label>
+                <select id="wheelbase-select" disabled>
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="engine-select">Silnik:</label>
+                <select id="engine-select" disabled>
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="bodyType-select">Rodzaj zabudowy:</label>
+                <select id="bodyType-select" disabled>
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="dimensions-select">Wymiary:</label>
+                <select id="dimensions-select" disabled>
+                    <option value="">-- Wybierz --</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="extras-container">Dodatki:</label>
+                <div id="extras-container"></div>
+            </div>
+
+            <button id="confirm-btn" disabled>Potwierdź konfigurację</button>
+        </section>
+    </main>
+
 </body>
 </html>

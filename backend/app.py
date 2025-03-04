@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from routes import setup_routes
 from models import init_db, db
+from seed_data import seed_data
 
 class CarConfiguratorApp:
     """Main application class for the car configurator."""
@@ -17,7 +18,11 @@ class CarConfiguratorApp:
         self.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/car_configurator'
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(self.app)
-        init_db(self.app)  # Tworzy tabele, jeśli ich nie ma
+
+        with self.app.app_context():
+            init_db(self.app)  # Tworzy tabele, jeśli ich nie ma
+            seed_data(self.app)
+
         self.register_routes()
 
     def register_routes(self):
